@@ -1,8 +1,8 @@
 
 function navAnimation(){
     var nav = document.querySelector("nav")
-    
     nav.addEventListener("mouseenter", function(){
+
         let tl = gsap.timeline()            //Timeline is used to make the gsap syncronous which means the gsap code will run according to the order 1 by 1.
         tl.to("#nav-bottom",{
             height:"28vh",
@@ -25,11 +25,10 @@ function navAnimation(){
         let tl = gsap.timeline()
         
         tl.to(".bottom-content>h5>span",{
-            y:25,
-            duration:0.01,
+            y:20,
             stagger:{
-                amount:0.3,
-            },
+                amount:0.5,
+            }
         })
         tl.to(".bottom-content>h5",{
             display:"none",
@@ -75,10 +74,8 @@ rightContent.forEach(function(content){
     })
 })
 }
-// navAnimation()
-// page2Ani()
 
-
+function page3Ani(){
 var p3Center = document.querySelector("#page3-center")
 var video = document.querySelector("#page3 video")
 
@@ -88,6 +85,42 @@ p3Center.addEventListener("click",function(){
         transform:"scaleX(1) scaleY(1)",
         opacity:1,
         borderRadius:"0",
-        zIndex:"999"
+        zIndex:"999",
     })
 })
+video.addEventListener("click" , function(){
+    video.pause()
+    gsap.to("video",{
+        transform:"scaleX(0) scaleY(0)",
+        opacity:"0",
+        borderRadius:"30px",
+        zIndex:"1"
+    })
+})
+}
+
+function page6(){
+    var section = document.querySelectorAll("#sec1-right")
+section.forEach(function(elem){
+    elem.addEventListener("mouseenter", function(){
+        elem.childNodes[3].style.opacity = 1,
+        elem.childNodes[3].play()
+    })
+    elem.addEventListener("mouseleave", function(){
+        elem.childNodes[3].style.opacity = 0,
+        elem.childNodes[3].load()
+    })
+})
+}
+
+
+
+
+
+
+
+
+// navAnimation()
+page2Ani()
+page3Ani()
+page6()
