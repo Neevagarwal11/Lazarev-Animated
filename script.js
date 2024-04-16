@@ -115,12 +115,7 @@ section.forEach(function(elem){
 
 
 
-
-
-
-
-
-// navAnimation()
+navAnimation()
 page2Ani()
 page3Ani()
 page6()

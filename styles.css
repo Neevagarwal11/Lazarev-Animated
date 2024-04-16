@@ -552,14 +552,26 @@ button>span{
     font-weight: 600;
     display: flex;
     justify-content: center;
+    gap: 1vh;
+    position: sticky;
+    top: 20%;
 }
+#page7>button>i{
+    font-size: 1.2vw;
+}
+
+
+
 #page7-right{
     width: 65%;
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }   
 #page7-right p{
-    font-size: 2.1vw;
+    font-size: 2.3vw;
     color: #FFFFFF;
 }
 #page7-right p span{
@@ -567,4 +579,111 @@ button>span{
     display : inline-block;
     font-size: 1vw;
     text-transform: capitalize;
+}
+#page7-content{
+    width: 100%;
+    /* background-color: red; */
+    margin-top: 12vh;
+    padding: 2vh 0;
+    /* border-top: 2px solid white; */
+}
+#page7-content h1{
+    font-size: 3vw;
+
+}
+#flex{
+    display: flex;
+    padding: 1.5vw 0;
+}
+#flex h4{
+    border-radius: 50px;
+    border: 1px solid grey;
+    font-weight: 400;
+    padding: 0.5vw  1vw;
+    text-transform: uppercase;
+    font-size: 0.8vw;
+}
+
+#page7-elem{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 2vw ;
+    padding-bottom: 5vw;
+    /* background-color: red; */
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s all ease;
+    border-top: 2px solid #333;
+    cursor: pointer;
+}
+#page7-elem p{
+    font-size: 1vw;
+    width: 60%;
+    z-index: 6;
+}
+#page7-elem h3{
+    font-weight: 400;
+    font-size: 1.5vw;
+    z-index: 6;
+    transition: 0.5s all;
+}
+#page7-elem i{
+    font-size: 1.5vw;
+    z-index: 6;
+    transition: 0.5s all;
+}
+#hover{
+    background-color: #222;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(-100%);
+    top: 0;
+    transition: 1s all cubic-bezier(0.19, 1, 0.22, 1);
+}
+#page7-elem:hover h3{
+    padding-left: 1vw;
+} 
+#page7-elem:hover i{
+    padding-right: 1vw;
+    transform: translateY(-5px);
+} 
+#page7-elem:hover #hover{
+    transform: translateY(0%);
+    opacity: 1;
+}
+#page7-elem:hover{
+    border-top: 2px solid white;
+}
+::marker{
+    content: "";
+}
+
+summary{
+    border-top: 2px solid #333;
+    padding: 1vw 0;
+    transition: 0.3s ease all;
+    cursor: pointer;
+    list-style-image: url("Assets/Down\ arror.png");
+    list-style-type: disc;    
+}
+details[open]>summary{
+    border-top: 2px solid #fff;
+}
+#head{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+    align-items: center;
+}
+#head i{
+    font-size: 1.5vw;
+    margin-right: 2vw;
+    transition: all 0.5s ease;
+}
+details[open] #head>i{
+    transform:rotateZ(180deg);
 }
