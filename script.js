@@ -111,11 +111,104 @@ section.forEach(function(elem){
         elem.childNodes[3].load()
     })
 })
+
+    var video = document.querySelectorAll(".video")
+    video.forEach(function(vid){
+        vid.addEventListener("mouseenter", function(){
+            // console.log(vid.childNodes)
+            gsap.to(vid.childNodes[5],{
+                opacity:1,
+                scale:1
+            })
+        })
+        vid.addEventListener("mouseleave", function(){
+            console.log(vid.childNodes)
+            gsap.to(vid.childNodes[5],{
+                opacity:0,
+                scale:0,
+            })
+        })
+
+        vid.addEventListener("mousemove",function(dets){
+            gsap.to(vid.childNodes[5],{
+                x: dets.x - vid.getBoundingClientRect().x -80,
+                y:dets.y - vid.getBoundingClientRect().y - 650,  
+                cursor:"pointer"
+            })
+        })
+    })
 }
+function page6next(){
+    // var card = document.querySelectorAll("#img-card")
+    var ccard = document.querySelectorAll("#content-card")
 
+    ccard.forEach(function(c){
+        var car = c.childNodes[3]
+        var ca = car.childNodes[5]
+        console.log(car.childNodes)
+        ca.addEventListener("mouseenter",function(){
+            console.log(ca.childNodes)
+            ca.childNodes[1].style.opacity=1;
+            ca.childNodes[1].style.scale=1.35;
+            ca.childNodes[1].play()
 
-
-navAnimation()
+            let tl =gsap.timeline()
+            
+            tl.to(car.childNodes[1],{
+                opacity:"0",
+                duration:0.1
+            })
+            tl.to(car.childNodes[3],{
+                opacity:"0",
+                duration:0.1
+            })
+            tl.to(ca,{
+                height:"100%",
+                duration:0.12,
+            })
+            tl.to(ca.childNodes[3],{
+                height:"100%"
+            })
+        })
+        
+        
+        ca.addEventListener("mouseleave",function(){
+            ca.childNodes[1].style.opacity=0
+            // ca.childNodes[3].style.opacity=1
+            
+            let tl =gsap.timeline()
+            tl.to(ca,{
+                height:"50%",
+                // scale:"1.4"
+            })
+            tl.to(ca.childNodes[3],{
+                height:"100%"
+            })
+            tl.to(car.childNodes[1],{
+                opacity:"1",
+                duration:0.1
+            })
+            tl.to(car.childNodes[3],{
+                opacity:"1",
+                duration:0.1
+            })
+        })
+        
+    })
+        
+}        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+// navAnimation()
 page2Ani()
 page3Ani()
 page6()
+page6next()

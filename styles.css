@@ -63,7 +63,7 @@ body , html{
 /* NavBar */
 
 nav{
-    height: 13vh;
+    height: 10vh;
     position: fixed;
     width: 100vw;
     display: flex;
@@ -528,7 +528,28 @@ button>span{
     transition: opacity 0.2s ease;
 }
 
-
+#circle{
+    border-radius: 50%;
+    background-color: blue;
+    width: 12vw;
+    height: 12vw;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    scale: 0;
+    position: relative;
+    gap: 1vw;
+    padding: 0 1vh;
+    font-weight: 600;
+    flex-direction: column-reverse;
+}
+#circle i{
+    font-size: 1.4vw;
+    margin-left: 70%;
+    transform: translateY(-100%);
+}
 /* Page7 */
 
 #page7{
@@ -686,4 +707,110 @@ details[open]>summary{
 }
 details[open] #head>i{
     transform:rotateZ(180deg);
+}
+
+/* Page 6.5 */
+#page6next{
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    position: relative;
+    
+    padding: 5vh 10vw;
+}
+#page6-content{
+    /* border: 2px solid red; */
+    height: 90%;
+    width: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-30%);
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 2vw;
+}
+#content-card{
+    height: 100%;
+    width: 48%;
+    /* border: 2px solid blue; */
+    border-top: 1px solid rgba(128, 128, 128, 0.349);
+    color: black;
+    padding: 5vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.5s all ease;
+}
+#content-card:hover{
+    border-top: 2px solid black;
+}
+#heading{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    /* justify-content: center; */
+}
+#content-card h1{
+    color: black;
+    font-weight: 300;
+    font-size: 2.5vw;
+    cursor: pointer;
+}
+#arrow{
+    height: 0.8vw;
+    width: 1.6vw;
+}
+#content-card p{
+    font-size:1.2vw;
+    font-weight: 500;
+    /* padding-top: 4vw; */
+    /* transition: 0.5s ease all; */
+}
+#img-card{
+    height: 50%;
+    width: 100%;
+    /* border: 2px solid green; */
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: 0.7s ease-out all;
+    align-items: end;
+    justify-content:end;
+}
+
+#imgs{
+    height: 5vh;
+  
+}
+#imgs img{
+    height: 100%;
+    margin-top: 2vw;
+}
+#img-card img{
+    width: 100%;
+    height: 100%;
+    scale: 1;
+    z-index: 5;
+    display: flex;
+    object-fit: cover;
+}
+#img-card video{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    z-index: 6;
+    opacity: 0;
+    position: absolute;
+    /* border: 1px solid blue; */
+    scale: 1.4;
+    transition: 0.3s ease all;
+}
+#hover-effect{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 90%;
+    /* padding-top: 3.5vw; */
+    position: relative;
 }
