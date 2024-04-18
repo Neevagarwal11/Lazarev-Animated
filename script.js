@@ -1,3 +1,36 @@
+function locomotive(){
+    gsap.registerPlugin(ScrollTrigger);
+
+// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector("#main"),
+  smooth: true
+});
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy("#main", {
+  scrollTop(value) {
+    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+});
+
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
+
+}
+
 
 function navAnimation(){
     var nav = document.querySelector("nav")
@@ -17,7 +50,7 @@ function navAnimation(){
         tl.from(".bottom-content>h5>span",{
             y:25,
             stagger:{
-                amount:0.5,
+                amount:0.3,
             }
         })
     })
@@ -25,9 +58,9 @@ function navAnimation(){
         let tl = gsap.timeline()
         
         tl.to(".bottom-content>h5>span",{
-            y:20,
+            y:25,
             stagger:{
-                amount:0.5,
+                amount:0.3,
             }
         })
         tl.to(".bottom-content>h5",{
@@ -39,6 +72,19 @@ function navAnimation(){
             duration:0.1,
             // transition:"0.5s linear",
         })
+    })
+
+    gsap.to("nav",{
+        height:"10vh",
+        transition:"2s ease all",
+        scrollTrigger:{
+            trigger:"nav",
+            scroller:"#main",
+            start:"bottom -30%",
+            // end:"top 100%",
+            // markers:true,
+            scrub:true,
+        }
     })
     
 }
@@ -77,20 +123,21 @@ rightContent.forEach(function(content){
 
 function page3Ani(){
 var p3Center = document.querySelector("#page3-center")
-var video = document.querySelector("#page3 video")
+var vid = document.querySelector("#page3 video")
 
 p3Center.addEventListener("click",function(){
-    video.play()
-    gsap.to("video",{
+    vid.load()
+    vid.play()
+    gsap.to("#page3>video",{
         transform:"scaleX(1) scaleY(1)",
         opacity:1,
         borderRadius:"0",
-        zIndex:"999",
+        zIndex:"1999",
     })
 })
-video.addEventListener("click" , function(){
-    video.pause()
-    gsap.to("video",{
+vid.addEventListener("click" , function(){
+    vid.pause()
+    gsap.to("#page3>video",{
         transform:"scaleX(0) scaleY(0)",
         opacity:"0",
         borderRadius:"30px",
@@ -103,11 +150,14 @@ function page6(){
     var section = document.querySelectorAll("#sec1-right")
 section.forEach(function(elem){
     elem.addEventListener("mouseenter", function(){
+        
         elem.childNodes[3].style.opacity = 1,
+        // elem.childNodes[1].style.opacity = 0,
         elem.childNodes[3].play()
     })
     elem.addEventListener("mouseleave", function(){
         elem.childNodes[3].style.opacity = 0,
+        // elem.childNodes[1].style.opacity = 1,
         elem.childNodes[3].load()
     })
 })
@@ -157,6 +207,7 @@ function page6next(){
             tl.to(car.childNodes[1],{
                 opacity:"0",
                 duration:0.1
+
             })
             tl.to(car.childNodes[3],{
                 opacity:"0",
@@ -164,7 +215,8 @@ function page6next(){
             })
             tl.to(ca,{
                 height:"100%",
-                duration:0.12,
+                duration:0.2,
+                borderRadius:"10px"
             })
             tl.to(ca.childNodes[3],{
                 height:"100%"
@@ -180,6 +232,8 @@ function page6next(){
             tl.to(ca,{
                 height:"50%",
                 // scale:"1.4"
+                duration:0.1,
+                borderRadius:"0px"
             })
             tl.to(ca.childNodes[3],{
                 height:"100%"
@@ -198,17 +252,81 @@ function page6next(){
         
 }        
         
+function page8(){
+
+    gsap.from("#p8p2 h4",{
+        x:0,
+    duration:1,
+    scrollTrigger:{
+        trigger:"#p8p2",
+        start:"top 80%",
+        end:"top 20%",
+        // markers:true,
+        scrub:true,
+        scroller:"#main",
+    }
+})
         
+gsap.from("#p8p3 h4",{
+    x:0,
+    duration:1,
+    scrollTrigger:{
+        trigger:"#p8p3",
+        start:"top 80%",
+        end:"top 20%",
+        // markers:true,
+        scrub:true,
+        scroller:"#main",
+    }
+})
+
+gsap.from("#p8p4 h4",{
+    x:0,
+    duration:1,
+    scrollTrigger:{
+        trigger:"#p8p4",
+        start:"top 80%",
+        end:"top 20%",
+        // markers:true,
+        scrub:true,
+        scroller:"#main",
+    }
+})
+}
+function loadingAnimation(){
+
+    var tl = gsap.timeline()
+    
+    tl.from("#page1",{
+        opacity:0,
+        duration:0.2,
+    })
+    tl.from("#page1",{
+        transform:"scaleX(0.6) scaleY(0.1) translateY(250%)",
+        duration:2,
+        borderRadius:"100px",
+        ease:"expo.out",
+    })
+    tl.from("nav",{
+        opacity:"0"
+    })
+    tl.from("#page1 h1 , #page1 p , #page1 div",{
+        opacity:"0",
+        y:40,
+        stagger:0.5,
+        duration:0.6,
+    })
+}
+
+
+
+
         
-        
-        
-        
-        
-        
-        
-        
-// navAnimation()
+loadingAnimation()
+locomotive()
+navAnimation()
 page2Ani()
 page3Ani()
 page6()
 page6next()
+page8()

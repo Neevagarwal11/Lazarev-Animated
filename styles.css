@@ -63,7 +63,7 @@ body , html{
 /* NavBar */
 
 nav{
-    height: 10vh;
+    height: 14vh;
     position: fixed;
     width: 100vw;
     display: flex;
@@ -76,6 +76,7 @@ nav{
     z-index: 10;
     /* border: 2px solid red; */
     padding-left: 5vw;
+
 }
 nav h1{
     font-weight: 800;
@@ -533,7 +534,7 @@ button>span{
     background-color: blue;
     width: 12vw;
     height: 12vw;
-    z-index: 100;
+    z-index: 4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -563,19 +564,31 @@ button>span{
     padding: 10vh 8vw;
     padding-left: 2vw;
 }
-#page7>button{
+
+#button>button{
     background-color: #0DA34E;
     padding: 1.5vw 2vw;
     font-size: 0.9vw;
     border-radius: 50px;
     border: none;
-    width: 20%;
+    width: 100%;
     font-weight: 600;
     display: flex;
     justify-content: center;
     gap: 1vh;
-    position: sticky;
-    top: 20%;
+    
+}
+#p7btn{
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    /* position: relative; */
+    width: 30%;
+
 }
 #page7>button>i{
     font-size: 1.2vw;
@@ -813,4 +826,168 @@ details[open] #head>i{
     height: 90%;
     /* padding-top: 3.5vw; */
     position: relative;
+}
+
+/* Page-8 */
+#page8{
+    background-color: white;
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    padding: 10vh 10vw;
+}
+#page8>h1{
+    color: black;
+    font-size: 5.8vw;
+    padding-left: 23vw;
+    padding-right: 5vw;
+    line-height: 5.8vw;
+    padding-bottom: 10vh;
+    border-bottom: 2px solid #333;
+}
+#page8-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5vw 0;
+}
+#right-8{
+    width: 70%;
+}
+#right-8 p{
+    font-size: 1.4vw;
+    margin-bottom: 5vw;
+    width: 80%;
+}
+#btn{
+    background-color: #4f5bff;
+    width: 15vw;
+    height: 4vw;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 20%;
+}
+#btn h4{
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8vw;
+}
+#btn i{
+    font-size: 1.2vw;
+    margin-left: 0.5vw;
+    font-weight: 400;
+}
+
+#page8-bottom{
+    height: 45vh;
+    width: 100%;
+    /* background-color: red; */
+    border-top: 1px solid #dadada;
+    display: flex;
+    color: black;
+    align-items: flex-start;
+    justify-content: center;
+}
+#p8p1{
+    border-right: 1px solid #dadada;
+    width: 30%;
+    height: 100%;
+}
+#p8p2{
+    border-right: 1px solid #dadada;
+    width: 35%;
+    height: 100%;
+}
+#p8p3{
+    border-right: 1px solid #dadada;
+    width: 25%;
+    height: 100%;
+}
+
+#p8p4{
+    border-right: 1px solid #dadada;
+    width: 20%;
+    height: 100%;
+}
+#p8p5{
+    /* border-right: 1px solid #dadada; */
+    width: 20%;
+    height: 100%;
+}
+.btm-p{
+    padding: 3vh 0.6vw;
+}
+.btm-p h5{
+    color: black;
+    font-weight: 500;
+    font-size: 1vw;
+    margin-bottom: 3vh;
+}
+.btm-p h4{
+    background-color: #111;
+    width: 80%;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 0.8vw;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3vh;
+}
+.btm-p h4 span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:1.5vw;
+    height: 1.5vw;
+    background-color: #333;
+    padding: 0.5vw;
+    border-radius: 50px;
+    margin-right: 1vw;
+}
+#p8p2 h4:nth-child(2){
+    transform: translateX(0%);
+}
+#p8p2 h4:nth-child(3){
+    transform: translateX(10%);
+}
+#p8p2 h4:nth-child(4){
+    transform: translateX(20%);
+}
+#p8p2 h4:nth-child(5){
+    transform: translateX(30%);
+}
+#p8p2 h4:nth-child(6){
+    transform: translateX(40%);
+}
+#p8p2 h4:nth-child(7){
+    transform: translateX(50%);
+}
+#p8p3 h4:nth-child(2){
+    transform: translateX(5%);
+}
+#p8p3 h4:nth-child(3){
+    transform: translateX(20%);
+}
+#p8p4 h4:nth-child(2){
+    transform: translateX(0%);
+}
+
+#p8p4 h4:nth-child(3){
+    transform: translateX(15%);
+}
+
+#p8p4 h4:nth-child(4){
+    transform: translateX(30%);
+}
+
+/* Page 9 */
+#page9{
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
 }
