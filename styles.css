@@ -989,5 +989,24 @@ details[open] #head>i{
 #page9{
     height: 100vh;
     width: 100vw;
-    background-color: white;
+    background-color: black;
+
+}
+#p9-left{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 100%;
+    padding: 9vw 3.5vw;
+    border: 2px solid red;
+    color: white;
+    justify-content: space-between;
+}
+#p9-left p{
+    color: white;
+    font-size: 1vw;
+    width: 65%;
+}
+#p9-left h1{
+    font-size: 3vw;
 }
